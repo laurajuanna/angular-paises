@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PaisService {
 
-  private apiUrl: string = 'https://restcountries.com/v2';
+  private apiUrl: string = 'https://restcountries.com/v3';
 
   constructor(private http: HttpClient) { }
 
