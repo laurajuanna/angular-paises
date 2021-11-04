@@ -2,8 +2,8 @@
 <hr>
 <div class="row">
   <div class="col">
-    <!-- los () significan que "escucha" el evento emitido del app-country-input -->
-    <app-country-input (onUserEnter)="buscar($event)"></app-country-input>
+    <!-- FACT los () significan que "escucha" el evento emitido del app-country-input -->
+    <app-country-input (onUserEnter)="buscar($event)" (onDebounce)="sugerencias($event)"></app-country-input>
   </div>
 </div>
 
