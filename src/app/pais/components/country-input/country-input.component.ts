@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
@@ -12,6 +12,7 @@ export class CountryInputComponent implements OnInit {
   // Emite el termino. El <string> sería el string termino que sale del input
   @Output() onUserEnter: EventEmitter<string> = new EventEmitter();
   @Output() onDebounce: EventEmitter<string> = new EventEmitter();
+  @Input() placeholderTxt: string = '';
 
   // FACT El subject es como un Observable
   debouncer: Subject<string> = new Subject();

@@ -8,19 +8,19 @@ import { Country } from '../interface/pais.interface';
 })
 export class PaisService {
 
-  /*
-  https://restcountries.com/v2/all
-
-  pais por nombre
-  https://restcountries.com/v2/name/argentina
-  */
   private apiUrl: string = 'https://restcountries.com/v3';
 
   constructor(private http: HttpClient) { }
 
-  // Para quitar el any de las llaves de abajo se usa quicktype.io
+  // FACT Para quitar el any de las llaves de abajo se usa quicktype.io
   buscarPais(termino: string): Observable<Country[]> {
     const url = `${this.apiUrl}/name/${termino}`;
+
+    return this.http.get<Country[]>(url);
+  }
+
+  buscarCapital(termino: string): Observable<Country[]> {
+    const url = `${this.apiUrl}/capital/${termino}`;
 
     return this.http.get<Country[]>(url);
   }

@@ -12,7 +12,7 @@
     <tr *ngFor="let pais of paises; let i = index">
       <td class="text-center">{{i + 1}} </td>
       <td class="text-center"><img [src]="pais.flags[0]" [alt]="pais.name.common" width="50px"> </td>
-      <td>{{pais.name.common}}</td>
+      <td>{{pais.name.common}} ({{pais.capital[0]}})</td>
       <td>{{pais.population | number}}</td>
       <td>
         <!-- routerLink está entre corchetes para construir la ruta que navega a /pais/:id -->
