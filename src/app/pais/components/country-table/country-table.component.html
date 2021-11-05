@@ -1,8 +1,8 @@
 <table class="table table-sm table-borderless table-hover">
   <thead>
     <tr>
-      <th>#</th>
-      <th>Bandera</th>
+      <th class="text-center">#</th>
+      <th class="text-center">Bandera</th>
       <th>Nombre</th>
       <th>Población</th>
       <th></th>
@@ -11,7 +11,7 @@
   <tbody>
     <tr *ngFor="let pais of paises; let i = index">
       <td class="text-center">{{i + 1}} </td>
-      <td class="text-center"><img [src]="pais.flags[0]" [alt]="pais.name.common" width="50px"> </td>
+      <td class="text-center"><img [src]="pais.flags.svg" [alt]="pais.name.common" width="50px"> </td>
       <td>{{pais.name.common}} ({{pais.capital[0]}})</td>
       <td>{{pais.population | number}}</td>
       <td>

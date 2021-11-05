@@ -29,12 +29,25 @@ export interface Country {
   car: Car;
   timezones: string[];
   continents: string[];
-  flags: string[];
+  flags: CoatOfArms;
+  coatOfArms: CoatOfArms;
+  startOfWeek: string;
+  capitalInfo: CapitalInfo;
+  postalCode: PostalCode;
+}
+
+export interface CapitalInfo {
+  latlng: number[];
 }
 
 export interface Car {
   signs: string[];
   side: string;
+}
+
+export interface CoatOfArms {
+  png: string;
+  svg: string;
 }
 
 export interface Currencies {
@@ -89,4 +102,9 @@ export interface NativeName {
 export interface Translation {
   official: string;
   common: string;
+}
+
+export interface PostalCode {
+  format: string;
+  regex: string;
 }

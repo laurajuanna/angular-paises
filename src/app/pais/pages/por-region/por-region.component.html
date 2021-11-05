@@ -1,1 +1,39 @@
-<p>por-region works!</p>
+<h2>Buscar por Región <small *ngIf="regionActiva"> - ({{regionActiva | titlecase}})</small></h2>
+<hr>
+
+<h5>Seleccione la región</h5>
+
+<div class="row">
+  <!--
+    FACT Clases condicionales
+
+    - para agregar sólo una clase x condición
+    [class.btn-primary]="region === regionActiva"
+
+    - para agregar una clase u otra evaluando dos o más condiciones
+    [ngClass]="{'btn-outline-primary': region !== regionActiva, 'btn-primary': region === regionActiva}"
+
+    - para agregar una clase u otra haciendo sólo una evaluación
+    [class]=" (region === regionActiva) ? 'btn btn-sm btn-primary' : 'btn btn-sm btn-outline-primary' "
+
+    La mejor opción (poniendo la condicion en el html) es la tercera porque, a diferencia de la segunda,
+    hace una sola evaluación para dar el resultado. En la segunda se hacen dos evaluaciones para obtener el mismo resultado.
+
+    Sino, se puede hacer un método para devolver la clase dentro del TS ,
+    agregando al button [class]="getClaseCSS(region)" (y ver el método getClaseCSS en TS) .
+  -->
+  <div class="btn-group btn-group-sm" role="group">
+    <button class="btn btn-sm btn-outline-primary" [ngClass]="{'active': region === regionActiva}"
+      *ngFor="let region of regiones" (click)="activarRegion(region)">
+      {{region | titlecase}}
+    </button>
+  </div>
+</div>
+
+<hr>
+
+<div *ngIf="paises.length > 0" class="row">
+  <div class="col">
+    <app-country-table [paises]=paises></app-country-table>
+  </div>
+</div>
