@@ -1,10 +1,11 @@
-<h2>Buscar por Región <small *ngIf="regionActiva"> - ({{regionActiva | titlecase}})</small></h2>
-<hr>
+<div class="animate__animated animate__fadeIn">
+  <h2>Buscar por Región <small *ngIf="regionActiva"> - ({{regionActiva | titlecase}})</small></h2>
+  <hr>
 
-<h5>Seleccione la región</h5>
+  <h5>Seleccione la región</h5>
 
-<div class="row">
-  <!--
+  <div class="row">
+    <!--
     FACT Clases condicionales
 
     - para agregar sólo una clase x condición
@@ -22,18 +23,19 @@
     Sino, se puede hacer un método para devolver la clase dentro del TS ,
     agregando al button [class]="getClaseCSS(region)" (y ver el método getClaseCSS en TS) .
   -->
-  <div class="btn-group btn-group-sm" role="group">
-    <button class="btn btn-sm btn-outline-primary" [ngClass]="{'active': region === regionActiva}"
-      *ngFor="let region of regiones" (click)="activarRegion(region)">
-      {{region | titlecase}}
-    </button>
+    <div class="btn-group btn-group-sm" role="group">
+      <button class="btn btn-sm btn-outline-primary" [ngClass]="{'active': region === regionActiva}"
+        *ngFor="let region of regiones" (click)="activarRegion(region)">
+        {{region | titlecase}}
+      </button>
+    </div>
   </div>
-</div>
 
-<hr>
+  <hr>
 
-<div *ngIf="paises.length > 0" class="row">
-  <div class="col">
-    <app-country-table [paises]=paises></app-country-table>
+  <div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+      <app-country-table [paises]=paises></app-country-table>
+    </div>
   </div>
 </div>

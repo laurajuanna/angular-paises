@@ -1,20 +1,22 @@
-<h2>Por Capital</h2>
-<hr>
-<div class="row">
-  <div class="col">
-    <!-- FACT los () significan que "escucha" el evento emitido del app-country-input -->
-    <app-country-input (onUserEnter)="buscar($event)" placeholderTxt="Buscar Capital..."></app-country-input>
+<div class="animate__animated animate__fadeIn">
+  <h2>Por Capital</h2>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <!-- FACT los () significan que "escucha" el evento emitido del app-country-input -->
+      <app-country-input (onUserEnter)="buscar($event)" placeholderTxt="Buscar Capital..."></app-country-input>
+    </div>
   </div>
-</div>
 
-<hr>
+  <hr>
 
-<div *ngIf="hayError" class="alert alert-danger">
-  No se encontró ningún registro asociado a {{termino}}
-</div>
+  <div *ngIf="hayError" class="alert alert-danger">
+    No se encontró ningún registro asociado a {{termino}}
+  </div>
 
-<div *ngIf="paises.length > 0" class="row">
-  <div class="col">
-    <app-country-table [paises]=paises></app-country-table>
+  <div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+      <app-country-table [paises]=paises></app-country-table>
+    </div>
   </div>
 </div>

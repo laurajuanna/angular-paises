@@ -1,21 +1,32 @@
-<h2>Por País</h2>
-<hr>
-<div class="row">
-  <div class="col">
-    <!-- FACT los () significan que "escucha" el evento emitido del app-country-input -->
-    <app-country-input (onUserEnter)="buscar($event)" placeholderTxt="Buscar País..."
-      (onDebounce)="sugerencias($event)"></app-country-input>
+<div class="animate__animated animate__fadeIn">
+  <h2>Por País</h2>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <!-- FACT los () significan que "escucha" el evento emitido del app-country-input -->
+      <app-country-input (onUserEnter)="buscar($event)" placeholderTxt="Buscar País..."
+        (onDebounce)="sugerencias($event)"></app-country-input>
+    </div>
   </div>
-</div>
 
-<hr>
+  <ul class="list-group mt-1" *ngIf="termino">
+    <li *ngFor="let pais of paisesSugeridos" class="list-group-item list-group-item-action sugested">
+      <a [routerLink]="['/pais', pais.cca2]" class="nav-link">{{pais.name.common}}</a>
+    </li>
+    <li class="list-group-item list-group-item-action sugested" (click)="buscarSugerido(termino)">
+      <a class="nav-link">Buscar "{{termino}}"</a>
+    </li>
+  </ul>
 
-<div *ngIf="hayError" class="alert alert-danger">
-  No se encontró ningún registro asociado a {{termino}}
-</div>
+  <hr>
 
-<div *ngIf="paises.length > 0" class="row">
-  <div class="col">
-    <app-country-table [paises]=paises></app-country-table>
+  <div *ngIf="hayError" class="alert alert-danger">
+    No se encontró ningún registro asociado a {{termino}}
+  </div>
+
+  <div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+      <app-country-table [paises]=paises></app-country-table>
+    </div>
   </div>
 </div>

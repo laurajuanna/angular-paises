@@ -3,3 +3,10 @@ tr > td {
   color: #606060;
   font-size: 14px;
 }
+
+li.sugested {
+  cursor: pointer;
+  min-height: calc(1.5em + 0.5rem + 2px);
+  padding: 0.5rem;
+  font-size: .875rem;
+}
